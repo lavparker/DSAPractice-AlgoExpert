@@ -1,0 +1,26 @@
+1. Drop lower order terms 
+    i.e. T(n) = 2n^2 + 3n + 1 becomes 2n^2
+
+2. Drop all constant multipliers
+    2n^2 becomes = O(n^2)
+
+
+ 
+
+1. Single Loop 
+
+for(let i = 1; i <=n; i++){
+    x = y + z; //this takes constant time to execute  = c 
+    //the constant becomes c*n or cn. We can neglect the constant 'c' and simply write the 
+    //time complexity as O(n)
+}
+
+2. Nested Loops 
+
+for(let i = 1; i <= n ; i++){
+    for(let j = 1; j <= n; j++){
+        x = y + z; //takes constant time to 
+    }
+}
+
+https://www.youtube.com/watch?v=KXAbAa1mieU
