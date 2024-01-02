@@ -40,3 +40,15 @@ function findClosestValueInBSTHelper(tree, target, closest){
     return closest
   }
 }
+
+// Time Complexity:
+// The time complexity is O(log N) on average, where N is the number of nodes in the Binary Search Tree (BST). This is because, in a balanced BST, the algorithm will eliminate half of the remaining nodes at each recursive call, leading to a logarithmic time complexity.
+
+// However, in the worst case (unbalanced tree), the time complexity can be O(N), where N is the number of nodes. This occurs when the tree degenerates into a linked list, and each node needs to be visited.
+
+// Space Complexity:
+// The space complexity is O(log N) in the average case, which corresponds to the maximum depth of the recursion stack. This is because the algorithm uses recursion to traverse the tree, and the maximum depth of the recursion is proportional to the height of the balanced BST.
+
+// In the worst case, if the tree is unbalanced, the space complexity could be O(N), as the maximum depth of the recursion stack could be equal to the number of nodes in the tree.
+
+// In summary, the provided code is efficient in terms of time and space complexity, especially for balanced BSTs. However, in the worst-case scenario of an unbalanced tree, the time and space complexity could degrade to O(N).
