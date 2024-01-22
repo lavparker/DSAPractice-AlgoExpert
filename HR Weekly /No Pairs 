@@ -1,0 +1,49 @@
+// For each word in a list of word, if any two adjacent characters are equal, change one of them. Determine the minimun number of substitutions so te final string contains no adjacent equal characters
+
+
+// 1. 'add': change one d (1 change)
+// 2. boook: change the middle 0(1 change)
+// 3. break: no changes 
+
+//create a variable called changes and set it equal to 0
+//i = 0
+//while (i < word.length - 1)
+//if letter at i+1 is === letter at i 
+// change += 1; 
+// if(change++){
+    // i+= 2
+// }else i += 1 
+
+// return change 
+
+function minimalOperations(word){
+    let changes = 0; 
+    i = 0; 
+    while(i < word.length - 1){
+        let letter1 = word[i]; 
+        let letter2 = word[i + 1]; 
+        let iteration;
+        
+        if(letter1 === letter2){
+            changes++
+            iteration = i+=2
+
+        }else {
+            iteration = i++
+        }
+
+        iteration;
+        
+    }
+
+    return changes
+
+    
+
+}
+
+
+    console.log(minimalOperations("boook"))
+    console.log(minimalOperations("add"))
+    console.log(minimalOperations("break"))
+
