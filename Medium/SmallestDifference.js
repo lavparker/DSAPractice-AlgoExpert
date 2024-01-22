@@ -49,3 +49,38 @@ function smallestDifference(arrayOne, arrayTwo) {
 
 //how should I return the pair?
 //what happens if the number is === to 0? 
+
+// ANOTHER APPROACH: 
+
+function smallestDifference(arrayOne, arrayTwo) {
+  // Write your code here.
+  let smallestDiff = Infinity; 
+  let pairs; 
+
+  for(let i = 0; i < arrayOne.length; i++){
+    for(let j = 0; j < arrayTwo.length; j++){
+      let num1 = arrayOne[i];
+      let num2 = arrayTwo[j]; 
+
+      let diff = Math.abs(num1 - num2); 
+
+      if(diff < smallestDiff){
+        smallestDiff = diff; 
+        pairs = [num1, num2]
+      }
+      
+    }
+  }
+  // console.log(pairs)
+  return pairs; 
+  
+}
+
+//create a variable called smallestDiff and set it equal to 0; 
+//loop through arrayOne
+//loop thorugh arrayTwo
+//create a variable called num2 = arrayTwo[j]; 
+//create a variable num1...if arrayOne is > then that is num1, if arrayTwo is greater,  then that is num1
+//create a variable called diff and set it equal to the abs value of num1 - num2
+// if it is less than smallestDiff, then smallestDiff is equal to diff 
+//return smallestDiff 
