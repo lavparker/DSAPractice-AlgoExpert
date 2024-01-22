@@ -23,3 +23,67 @@
 // 6 points
 
 
+function tournamentWinner(competitions, results) {
+  // Write your code here.
+  let teams = {}; 
+  let winner = ""
+
+  for(let i = 0; i < competitions.length; i++){
+    
+    let score; 
+    let won; 
+    if(results[i] === 1){
+      won = competitions[i][0]; 
+      if(teams[won]){
+        teams[won] += 3
+      }else{
+        teams[won] = 3
+      }
+   
+  
+    }else{
+      
+        won = competitions[i][1]; 
+      if(teams[won]){
+        teams[won] += 3
+      }else{
+        teams[won] = 3
+      }
+    
+    }
+  }
+
+  let score = 0; 
+  Object.keys(teams).forEach(function (final) {
+    let value = teams[final]; 
+
+
+    if(value > score){
+      score = value; 
+      winner = final
+    }
+  })
+
+  return winner;
+}
+
+
+
+//NOTE: REMEMBER TO INITIALIZE THE VALUES IN THE HASH SO THAT YOU CAN PUSH ADDITIONAL VALUES TO IT 
+//create a empty hash called teams. 
+//create an empty string called winner
+//iterate through the competitionsarray, 
+//for the position of i, if results[i] === 0, competion[i][1]won,else, competition[i][0] won
+//if team[winner] already exsist += 3 for the winner 
+//if not team[winner] += 3. 
+
+//after the loop 
+
+//go through the hash and 
+//compare the total score to one another 
+//the team with the highest score wins 
+//return winner 
+
+//if teams[winning_team] exists, += 
+// Do not edit the line below.
+exports.tournamentWinner = tournamentWinner;
