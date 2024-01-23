@@ -41,3 +41,28 @@ function moveElementToEnd(array, toMove) {
 
 // Do not edit the line below.
 exports.moveElementToEnd = moveElementToEnd;
+
+
+function moveElementToEnd(array, toMove) {
+  // Write your code here.
+
+  let loops = array.length - 1 
+  let ticker = 0; 
+  
+  while(ticker < loops){
+    for(let i = 0; i < array.length; i++){
+    let num = array[i]; 
+    if(toMove === num){
+      array.splice(i, 1); 
+      array.push(num)
+      
+    }
+    }
+    ticker++ 
+  }
+  return array; 
+}
+
+//time complexity : O(loops * n), where n is the length of the array.
+
+//space complexity : The space complexity is O(1). uses a constant amount of extra space (variables loops, ticker, and num), regardless of the input size.
