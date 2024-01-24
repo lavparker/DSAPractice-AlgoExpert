@@ -84,3 +84,42 @@ function smallestDifference(arrayOne, arrayTwo) {
 //create a variable called diff and set it equal to the abs value of num1 - num2
 // if it is less than smallestDiff, then smallestDiff is equal to diff 
 //return smallestDiff 
+
+//SECOND ATTEMPT 
+
+function smallestDifference(arrayOne, arrayTwo) {
+  // Write your code here.
+  let smallestDiff = null; 
+  let pairs; 
+
+  for(let i = 0; i < arrayOne.length; i++){
+    for(let j = 0; j < arrayTwo.length; j++){
+      let num1 = arrayOne[i]; 
+      let num2 = arrayTwo[j];
+
+      let compDiff = Math.abs(num1 - num2)
+
+      if (smallestDiff === null || smallestDiff > compDiff){
+        smallestDiff = compDiff
+        pairs = [num1, num2]
+      }
+    }
+  }
+  return pairs; 
+}
+
+
+//goal: to find the pair of numbers that have the smallest difference 
+//create a variable called smallestDiff = set it equal to null; 
+//create a variable called pairs
+// create outer loop with arrayOne 
+//create inner loop called arrayTwo 
+//num1 = arrayOne[i]
+//num2 = arrayTwo[j]
+//compDiff = Math.abs(num1 - num2)
+//if smallestDiff === null or smallestDiff is > compDiff 
+//smallestDiff = compDiff and pairs is = to num1 and num2 
+//return pairs 
+
+// time complexlity: O(n^2) - n being the number of loops 
+// space complexity: O(1) - the number or arrays don't change 
