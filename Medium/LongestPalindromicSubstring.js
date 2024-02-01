@@ -14,7 +14,7 @@
 
 
 // REMEMBER HOW TO FIND SUBSTRINGS IN A STRING USING A NESTED LOOP AND SPLITTING AT EACH ITERATION.
-//MADE MINOR MISTAKES; IMPORTANT TO MAKE SURE YOU KNOW HOW TO FIND THE SUBSTRING FOR EVERY STRING 
+//MADE MINOR MISTAKES; IMPORTANT TO MAKE SURE YOU KNOW HOW TO FIND THE SUBSTRING FOR EVERY STRING
 
 
 function longestPalindromicSubstring(string) {
@@ -71,3 +71,45 @@ function palindromes(array){
 //if true (in the upper function) check the length of the array, if it's greater than the current counter,
 //then the counter is now equal to that lenght and the longest is now equal to that array.toString().
 //return longest
+
+
+//SECOND ATTEMPT
+
+function longestPalindromicSubstring(string) {
+  // Write your code here.
+  let counter = 0;
+  let longpali = "";
+  let substringArray = []
+
+  if(string.length === 1){
+    return string;
+  }
+
+  for(let i = 0; i < string.length; i++){
+    for(let j = i + 1; j < string.length; j++){
+      let substring = string.slice(i, j);
+      substringArray.push(substring)
+    }
+  }
+
+  for(let k = 0; k < substringArray.length; k++){
+      let str = substringArray[k];
+      if(isPalindrome(str) && str.length > counter){
+        counter = str.length
+        longpali = str
+      }
+  }
+
+  return longpali;
+}
+
+function isPalindrome(string){
+  let reversed = "";
+
+  for(let i = string.length - 1; i >= 0; i--){
+    let ele = string[i];
+    reversed += ele
+  }
+
+  return string === reversed
+}
