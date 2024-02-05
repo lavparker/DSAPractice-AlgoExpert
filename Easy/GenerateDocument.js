@@ -13,3 +13,37 @@
 // Sample Output
 // true
 
+function generateDocument(characters, document) {
+  // Write your code here.
+  if (document.length === 0){
+    return true;
+  }
+
+  characters = characters.split("")
+
+  for(let i = 0; i < document.length; i++){
+    let char = document[i];
+    let charIdx = characters.indexOf(char)
+    if(charIdx !== -1){
+     characters.splice(charIdx, 1);
+    }else{
+      return false;
+    }
+  }
+  return true
+}
+
+//return true if the string is empty
+//loop through the document string;
+//while i < document.length
+//create a variable called char and set it equal to document[i];
+// check to see if characters.includes(chars)
+//if true, characters = characters.splice(i, 1)
+//if false return false
+//edge cases
+//what if document is empty
+//Time Complexity: O(m * n)
+//Space Complexity: O(n)
+
+// Do not edit the line below.
+exports.generateDocument = generateDocument;
