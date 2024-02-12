@@ -9,3 +9,34 @@
 // "zab"
 
 
+function caesarCipherEncryptor(string, key) {
+  let alpha = 'abcdefghijklmnopqrstuvwxyz';
+  let newStr = '';
+  let decoded;
+
+  for(let i = 0; i < string.length; i++){
+    let pos = alpha.indexOf(string[i])
+    console.log(pos)
+    if(pos + key < alpha.length - key){
+      decoded = alpha[pos + key];
+    }else{
+      decoded= alpha[(pos + key) % alpha.length]
+    }
+
+    newStr += decoded;
+  }
+  return newStr;
+}
+//create a variable called alpha and set it equal to the alphabet
+//create a variable called newStr = ""
+//loop through the string
+//to determine alpha of string...
+//set a variable called decoder
+//if i + n <= alpha.length - key
+//decoded = alpha[alpha + key];
+//else
+//decoded = alpha[(i+key)%alpha.length]
+//newStr += decoded
+//return newStr
+// Do not edit the line below.
+exports.caesarCipherEncryptor = caesarCipherEncryptor;
