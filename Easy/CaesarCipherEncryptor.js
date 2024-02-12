@@ -40,3 +40,6 @@ function caesarCipherEncryptor(string, key) {
 //return newStr
 // Do not edit the line below.
 exports.caesarCipherEncryptor = caesarCipherEncryptor;
+
+
+//SOLVED BY MYSELF  BUT TOOK A LONG TIME TO COME UP WITH THE PATTERN IN THE CONDITIONAL

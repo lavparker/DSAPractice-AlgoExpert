@@ -38,3 +38,38 @@ function removeDuplicatesFromLinkedList(linkedList) {
 // Do not edit the lines below.
 exports.LinkedList = LinkedList;
 exports.removeDuplicatesFromLinkedList = removeDuplicatesFromLinkedList;
+
+
+//ATTMEPT 2
+
+
+// This is an input class. Do not edit.
+class LinkedList {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+function removeDuplicatesFromLinkedList(linkedList) {
+  let current = linkedList
+  while(current.next !== null){
+    if(current.next.value === current.value){
+      current.next = current.next.next
+    }else{
+      current = current.next
+    }
+  }
+  return linkedList;
+}
+
+//create a variable called head and set it equal to linkedList
+//create a loop while current !== null
+// if current.next === current
+// then current.next === current.next.next
+//current = current.next
+//return head
+
+// Do not edit the lines below.
+exports.LinkedList = LinkedList;
+exports.removeDuplicatesFromLinkedList = removeDuplicatesFromLinkedList;
