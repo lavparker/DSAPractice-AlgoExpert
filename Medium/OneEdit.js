@@ -13,22 +13,3 @@
 // Sample Output
 // True // A single replace at index 1 of either string can make the strings equal
 
-function nthPower(array, n) {
-    let equal = [];
-
-    for (let i = 0; i < array.length; i++) {
-        let num = array[i];
-
-        while (num % n === 0 && num !== 1) {
-            num /= n;
-        }
-
-        if (num === 1) {
-            equal.push(i);
-        }
-    }
-
-    return equal;
-}
-
-console.log(nthPower([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3))
