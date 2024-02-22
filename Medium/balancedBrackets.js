@@ -1,6 +1,6 @@
 // Balanced Brackets O
-// Write a function that takes in a string made up of brackets (• [. {., 1, and 3) and other optional characters. The function should return a boolean representing whether the string is balanced with regards to brackets.
-// A string is said to be balanced if it has as many opening brackets of a certain type as it has closing brackets of that type and if no bracket is unmatched. Note that an opening bracket can't match a corresponding closing bracket that comes before it, and similarly, a closing bracket can't match a corresponding opening bracket that comes after it. Also, brackets can't overlap each other as in E(J) •
+// Write a function that takes in a string made up of brackets ( (, [, {, ), and }) and other optional characters. The function should return a boolean representing whether the string is balanced with regards to brackets.
+// A string is said to be balanced if it has as many opening brackets of a certain type as it has closing brackets of that type and if no bracket is unmatched. Note that an opening bracket can't match a corresponding closing bracket that comes before it, and similarly, a closing bracket can't match a corresponding opening bracket that comes after it. Also, brackets can't overlap each other as in [(]) •
 // Sample Input
 // string= "([])(){}(())()()"
 // Sample Output
@@ -35,35 +35,29 @@ function balancedBrackets(string) {
   let brackStack = [];
 
   const bracket = {
-    "]" : "[", "}": "{", ")": "("
-  }
+    "]": "[",
+    "}": "{",
+    ")": "("
+  };
 
   let isOpen = ["(", "[", "{"];
   let isClosed = [")", "]", "}"];
 
-
-  for(let i = 0; i < string.length; i++){
+  for (let i = 0; i < string.length; i++) {
     let ele = string[i];
 
-    if(isOpen.includes(ele)){
-      brackStack.push(ele)
-    }else if(isClosed.includes(ele)){
-      if(brackStack[brackStack.length - 1] === bracket[ele]){
-        brackStack.pop()
-      }else{
+    if (isOpen.includes(ele)) {
+      brackStack.push(ele);
+    } else if (isClosed.includes(ele)) {
+      if (brackStack.length === 0 || brackStack.pop() !== bracket[ele]) {
         return false;
       }
-    } else{
-      continue;
     }
-
-
-  if(brackStack.length === 0 && ele === string.length - 1){
-    return true
-  }else{
-    return false
-  }
   }
 
-
+  // Check if there are any remaining unclosed brackets
+  return brackStack.length === 0;
 }
+
+// Do not edit the line below.
+exports.balancedBrackets = balancedBrackets;
