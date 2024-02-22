@@ -31,3 +31,39 @@
 //Time complexity is O(n)
 //Space complexity is O(n)
 
+function balancedBrackets(string) {
+  let brackStack = [];
+
+  const bracket = {
+    "]" : "[", "}": "{", ")": "("
+  }
+
+  let isOpen = ["(", "[", "{"];
+  let isClosed = [")", "]", "}"];
+
+
+  for(let i = 0; i < string.length; i++){
+    let ele = string[i];
+
+    if(isOpen.includes(ele)){
+      brackStack.push(ele)
+    }else if(isClosed.includes(ele)){
+      if(brackStack[brackStack.length - 1] === bracket[ele]){
+        brackStack.pop()
+      }else{
+        return false;
+      }
+    } else{
+      continue;
+    }
+
+
+  if(brackStack.length === 0 && ele === string.length - 1){
+    return true
+  }else{
+    return false
+  }
+  }
+
+
+}
