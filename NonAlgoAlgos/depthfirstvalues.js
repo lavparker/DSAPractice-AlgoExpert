@@ -78,4 +78,41 @@ module.exports = {
 //finally, I have c, i'll remove c from the stack, set it to current and add it to values.
 //I see that c node only has 1 child, so i'll push the f node to the stack. //REMEMBER TO ALWAYS CHECK IF YOUR CHILDREN EXIST BEFORE ADDING THEM TO THE STACK.
 //For the final iteration, you have the f node. We remove it fromthe stack, and add it to values. Check to see if f has children. It doesn't so I've finished this iteration. Now my stack is empty.
-//Once the stack is empty, I know that I must have traveled through the entire binary tree. 
+//Once the stack is empty, I know that I must have traveled through the entire binary tree.
+
+
+
+//RECURSIVE APPROACH
+
+// class Node {
+//   constructor(val) {
+//     this.val = val;
+//     this.left = null;
+//     this.right = null;
+//   }
+// }
+
+const depthFirstValues = (root) => {
+  //recursive approach
+  //I need to think of my simplest case of my code...the base case. In the case that my root is null, that means that, there is a tree with 0 nodes.
+
+  if(root === null) return []; //base case
+
+  //I know that if I need to make a recursive call, i need to call my function again and invoke it.
+
+  const leftValues = depthFirstValues(root.left); //this will give me an array of all of the values in the left subtree. what i would expect to get back here is [b, d, e]
+  const rightValues = depthFirstValues(root.right); //this will give me an array of all of the values in the right subtree. What I would expect to get back here is [c, f]
+
+  return [root.val, ...leftValues, ...rightValues ];
+
+//let's say we're jumping through test 00. We know that our root is going to be the a node, so when I make the top level call, this base case  does not fire. so i make my recursive calls. I know thatwhen i do depth first values of root.left, that means, that I"m going to be passing in the b node. If I pass in the b node into this call, what I expect back is the full array representing the depth first traversal of that subtree starting at b. Moving left, what I would expect to get back with leftValues is [b, d, e].
+  //It will be a similar story for my right call. If i'm at a, my root, and i passed in my right child, c, into the root.right call, what I expect back is just an array of [c, f] which is the depth first traversal of that right subtree.
+  //Now that I have my left subsree values and my right subtree values, I have to figure out how to combine it all together.
+  //What I need to do is take my self( [root.val] - the a node ), put it in the array followed by my left children , followed by my right children.
+
+};
+
+module.exports = {
+  depthFirstValues,
+};
+
