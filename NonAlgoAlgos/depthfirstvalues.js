@@ -92,7 +92,7 @@ module.exports = {
 //   }
 // }
 
-const depthFirstValues = (root) => {
+const depthFirstValuesr = (root) => {
   //recursive approach
   //I need to think of my simplest case of my code...the base case. In the case that my root is null, that means that, there is a tree with 0 nodes.
 
@@ -100,8 +100,8 @@ const depthFirstValues = (root) => {
 
   //I know that if I need to make a recursive call, i need to call my function again and invoke it.
 
-  const leftValues = depthFirstValues(root.left); //this will give me an array of all of the values in the left subtree. what i would expect to get back here is [b, d, e]
-  const rightValues = depthFirstValues(root.right); //this will give me an array of all of the values in the right subtree. What I would expect to get back here is [c, f]
+  const leftValues = depthFirstValuesr(root.left); //this will give me an array of all of the values in the left subtree. what i would expect to get back here is [b, d, e]
+  const rightValues = depthFirstValuesr(root.right); //this will give me an array of all of the values in the right subtree. What I would expect to get back here is [c, f]
 
   return [root.val, ...leftValues, ...rightValues ];
 
@@ -113,6 +113,5 @@ const depthFirstValues = (root) => {
 };
 
 module.exports = {
-  depthFirstValues,
+  depthFirstValuesr,
 };
-
