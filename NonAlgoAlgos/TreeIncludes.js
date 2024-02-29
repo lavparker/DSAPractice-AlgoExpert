@@ -143,4 +143,29 @@ module.exports = {
   treeIncludes,
 };
 
+//RECURSIVE APPROACH
 
+// class Node {
+//   constructor(val) {
+//     this.val = val;
+//     this.left = null;
+//     this.right = null;
+//   }
+// }
+
+const treeIncludesr = (root, target) => {
+  // recursive dfs
+  if(root === null){
+    return false
+  };
+
+  if(root.val === target) return true;
+
+  return treeIncludesr(root.left, target) || treeIncludesr(root.right, target);
+
+
+};
+
+module.exports = {
+  treeIncludesr,
+};
