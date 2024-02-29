@@ -116,3 +116,31 @@
 // treeIncludes(null, "b"); // -> false
 
 
+// class Node {
+//   constructor(val) {
+//     this.val = val;
+//     this.left = null;
+//     this.right = null;
+//   }
+// }
+
+const treeIncludes = (root, target) => {
+  //BFS iterative
+  if(root === null) return false;
+  //for my bfs, i'm going to use a queue
+  const queue = [ root ];
+
+  while(queue.length !== 0){
+    const current = queue.shift();
+    if(current.val === target) return true;
+   if(current.left) queue.push(current.left);
+    if(current.right) queue.push(current.right);
+  }
+  return false;
+};
+
+module.exports = {
+  treeIncludes,
+};
+
+
