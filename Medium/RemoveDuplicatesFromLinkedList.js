@@ -73,3 +73,52 @@ function removeDuplicatesFromLinkedList(linkedList) {
 // Do not edit the lines below.
 exports.LinkedList = LinkedList;
 exports.removeDuplicatesFromLinkedList = removeDuplicatesFromLinkedList;
+
+
+//ATTEMPT 3
+
+// This is an input class. Do not edit.
+class LinkedList {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+function removeDuplicatesFromLinkedList(linkedList) {
+  let current = linkedList;
+
+  while(current.next !== null){
+    if(current.value === current.next.value){
+      current.next = current.next.next
+    }else{
+      current = current.next
+    }
+     // current = current.next
+  }
+
+  return linkedList;
+}
+
+// Do not edit the lines below.
+exports.LinkedList = LinkedList;
+exports.removeDuplicatesFromLinkedList = removeDuplicatesFromLinkedList;
+
+
+//given the head of a sll
+//nodes are in sorted order
+//nodes should be modified in place
+
+//set the head equal to current.
+//loop through the linked list
+  // while the current is not equal to null
+  //check to see if current.value is equal to current.next.value
+  //if it is:
+    //remove the duplicate value by setting current.next = current.next.next
+    // set current equal to to current.next
+  //if it isn't:
+    //set current = current.next
+//once we're done with the loop, return linkedList
+
+//Time complexity: O(n) - n is the number of nodes in that we have to iterate through in the linked list
+//Space complexity: O(n) - the size of the linked list worse case, there are no dupes and we return the full list
