@@ -65,3 +65,40 @@ function firstNonRepeatingCharacter(string) {
 
 // Do not edit the line below.
 exports.firstNonRepeatingCharacter = firstNonRepeatingCharacter;
+
+
+//SECOND ATTEMPT
+
+
+function firstNonRepeatingCharacter(string) {
+  let count = {};
+  for(let i = 0; i < string.length; i++){
+    let lett = string[i];
+
+    if(count[lett]){
+      count[lett] += 1
+    }else{
+      count[lett] = 1
+    }
+  }
+
+  for(let j = 0; j < string.length; j++){
+    let single = string[j];
+    if(count[single] === 1){
+      return j;
+    }
+  }
+  return -1;
+}
+
+// Do not edit the line below.
+exports.firstNonRepeatingCharacter = firstNonRepeatingCharacter;
+
+
+//create a hash
+//loop through the string and count each character in that string in the hash
+//create a second loop, and loop through the string. if the letter if the value of the letter is 1, return it
+
+
+//time: O(n) the overall time complexity of your code is O(n), where n is the length of the input string.
+//space: O(n)  the overall space complexity of your code is O(n), where n is the length of the input string.
