@@ -32,3 +32,69 @@
 // 0 <= banned.length <= 100
 // 1 <= banned[i].length <= 10
 // banned[i] consists of only lowercase English letters.
+//lowercase
+
+///[\s!?',;.]+/
+
+//lowercase the string
+//split a string using regex by the space and punctuation
+
+//create an empty hash
+
+//loop through the array
+//if the word is = to the banned word, continue
+//if the word is not equal to the banned word and is not in the hash,
+    //hash[word] = 1
+//else the word is not equal to the banned word and is in the hash hash[word] +=1
+
+//create a counter
+//create a longword
+//outside of the loop
+//call object.entntries and turn it into a variable
+//for each element, word[num] check to see if ele[i][1] is > counter
+//if yes counter is equal to ele[i][1] && longWord is equal to ele[i][0]
+
+//return longword
+/**
+ * @param {string} paragraph
+ * @param {string[]} banned
+ * @return {string}
+ */
+var mostCommonWord = function(paragraph, banned) {
+    let lowPara = paragraph.toLowerCase();
+    // let regex = /[\s!?',;.]+/
+    let regex = /[!?',;.\s]+/;
+    let parArray = lowPara.split(regex);
+    let wordCount = {};
+    // console.log(parArray)
+
+    for(let i = 0; i < parArray.length; i++){
+        let word = parArray[i];
+        if(banned.includes(word)){
+            continue;
+        }else if(!banned.includes(word) && wordCount[word]){
+            wordCount[word] ++
+        }else{
+            wordCount[word] = 1
+        }
+    }
+
+    // console.log(wordCount)
+
+    let counter = 0;
+    let longWord = ""
+    let wordArr = Object.entries(wordCount);
+
+    for(let i = 0; i < wordArr.length; i++){
+        let word = wordArr[i];
+        if(word[1] > counter && word[0] !== ""){
+            counter = word[1]
+            longWord = word[0]
+        }
+    }
+
+    return longWord;
+
+
+};
+
