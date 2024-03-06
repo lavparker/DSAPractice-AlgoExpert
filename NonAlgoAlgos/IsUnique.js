@@ -2,7 +2,7 @@
 
 
 function isUnique(){
-
+    
 }
 
 
@@ -10,4 +10,4 @@ const string = "DSA is Fun!"
 //expected: false
 
 const str = "I don't rupeax"
-//expeat: true 
+//expeat: true
