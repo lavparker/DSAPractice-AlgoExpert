@@ -35,7 +35,11 @@ function FindIntersection(strArr) {
   //   return sameCombo;
   // }
 
-  return sameNum.join(",")
+   if(sameNum.length >= 1){
+    return sameNum.join(",");
+  }else{
+    return false;
+  }
 }
 
 // keep this function call here
@@ -54,4 +58,4 @@ console.log(FindIntersection(readline()));
 //check to see if shortStr.includes(num)
 //if true sameNum.push(num)
 
-//return sameNum.join(""); 
+//return sameNum.join("");
