@@ -152,30 +152,63 @@
 //DFS RERUCSIVE SOLUITON
 
 
-const treeSum = (root) => {
-	//base case
-	if(root === null) return 0;
+// const treeSumr = (root) => {
+// 	//base case
+// 	if(root === null) return 0;
 
-	return root.val + treeSum(root.left) + treeSum(root.right);
-}
+// 	return root.val + treeSumr(root.left) + treeSumr(root.right);
+// }
 
-//BFS
+// //BFS Iterative approach
 
-const treeSum = (root){
-	if(root === null ) return 0;
+// const treeSumb = (root) => {
+// 	if(root === null ) return 0;
 
-	let totalSum = 0;
+// 	let totalSum = 0;
 
-	const queue = [ root ];
+// 	const queue = [ root ];
 
-	while(queue.length > 0){
-		const current = queue.shift();
-		totalSum += current.val;
-		if(current.left !== null) queue.push(current.left);
-		if(current.right !== null) queue.push(current.right);
+// 	while(queue.length > 0){
+// 		const current = queue.shift();
+// 		totalSum += current.val;
+// 		if(current.left !== null) queue.push(current.left);
+// 		if(current.right !== null) queue.push(current.right);
 
+
+// 	}
+
+// 	return totalSum;
+// }
+
+
+//DFS Iterative
+
+const treeMinValue = (root){
+	let smallest = Infinity; //positive infinity because I know that any actual values in my tree are guaranteed to be less than infinity.
+	const stack = [ root ];
+
+	while(stack.length > 0){
+		const current = stack.pop();
+		if(current.val < smallest) smallest = current.val; 
+		if(current.left !== null) stack.push(current.left);
+		if(current.right !== null) stack.push(current.right);
 
 	}
 
-	return totalSum;
-}
+	return smallest;
+
+};
+
+//BFS Iterative
+
+const treeMinValue = (root){
+
+};
+
+const treeMinValue = (root){
+
+};
+
+const treeMinValue = (root){
+
+};
