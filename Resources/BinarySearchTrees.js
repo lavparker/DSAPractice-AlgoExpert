@@ -189,7 +189,7 @@ const treeMinValue = (root){
 
 	while(stack.length > 0){
 		const current = stack.pop();
-		if(current.val < smallest) smallest = current.val; 
+		if(current.val < smallest) smallest = current.val;
 		if(current.left !== null) stack.push(current.left);
 		if(current.right !== null) stack.push(current.right);
 
@@ -202,6 +202,18 @@ const treeMinValue = (root){
 //BFS Iterative
 
 const treeMinValue = (root){
+	let smallest = Infinity; //positive infinity because I know that any actual values in my tree are guaranteed to be less than infinity.
+	const queue = [ root ];
+
+	while(queue.length > 0){
+		const current = queue.shift();
+		if(current.val < smallest) smallest = current.val;
+		if(current.left !== null) queue.push(current.left);
+		if(current.right !== null) queue.push(current.right);
+
+	}
+
+	return smallest;
 
 };
 
