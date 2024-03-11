@@ -183,7 +183,7 @@
 
 //DFS Iterative
 
-const treeMinValue = (root){
+const treeMinValueDI = (root) => {
 	let smallest = Infinity; //positive infinity because I know that any actual values in my tree are guaranteed to be less than infinity.
 	const stack = [ root ];
 
@@ -200,13 +200,13 @@ const treeMinValue = (root){
 };
 
 //BFS Iterative
-
-const treeMinValue = (root){
+//O(n^2) solution
+const treeMinValueBI = (root) => {
 	let smallest = Infinity; //positive infinity because I know that any actual values in my tree are guaranteed to be less than infinity.
 	const queue = [ root ];
 
 	while(queue.length > 0){
-		const current = queue.shift();
+		const current = queue.shift(); //array.shift runs in O(n) time because if you remove the front element of an array in JS, you will have to shift the other elements over one position.
 		if(current.val < smallest) smallest = current.val;
 		if(current.left !== null) queue.push(current.left);
 		if(current.right !== null) queue.push(current.right);
@@ -217,10 +217,14 @@ const treeMinValue = (root){
 
 };
 
-const treeMinValue = (root){
+// DFS Recursive
+const treeMinValueDR = (root) => {
+	//basecase
+	if(root === null) return Infinity;
 
+	const leftMin = treeMinValueDR(root.left);
+	const rightMin = treeMinValueDR(root.right);
+
+	return Math.min(root.val, leftMin, rightMin);
 };
 
-const treeMinValue = (root){
-
-};
