@@ -228,3 +228,17 @@ const treeMinValueDR = (root) => {
 	return Math.min(root.val, leftMin, rightMin);
 };
 
+//RECURSIVE
+const maxPathSum = (root) => {
+  //edge case for when/if root is null
+  if(root === null) return -Infinity;
+  //base case is checking whether or not I have a leaf.
+  if(root.left == null) && (root.right === null) return root.val;
+
+  const maxChildPathSum = Math.max(
+  maxPathSum(root.left),
+  maxPathSum(root.right)
+  );
+
+  return root.val + maxChildPathSum;
+};
